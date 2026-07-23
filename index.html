@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entre Venas — Donación de sangre en La Plata</title>
+<meta name="description" content="Plataforma informativa sobre donación de sangre y vacunación en La Plata. Centros, campañas, requisitos y guía paso a paso.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Sprite de íconos SVG (decorativos, ocultos del árbol de accesibilidad) -->
+<svg xmlns="http://www.w3.org/2000/svg" class="visualmente-oculto" aria-hidden="true">
+  <symbol id="i-gota" viewBox="0 0 24 24"><path d="M12 2s7 8.5 7 13a7 7 0 1 1-14 0c0-4.5 7-13 7-13Z"/></symbol>
+  <symbol id="i-corazon" viewBox="0 0 24 24"><path d="M12 20.5s-7.5-4.6-10-9.2C.6 8 2 4.5 5.5 3.8c2-.4 3.8.5 5 2.2 1.2-1.7 3-2.6 5-2.2C19 4.5 20.4 8 19 11.3c-2.5 4.6-7 9.2-7 9.2Z"/></symbol>
+  <symbol id="i-mapa" viewBox="0 0 24 24"><path d="M12 22s7-7.4 7-12.5A7 7 0 0 0 5 9.5C5 14.6 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.4"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></symbol>
+  <symbol id="i-telefono" viewBox="0 0 24 24"><path d="M4 5c0-1 .8-1.8 1.8-1.8h2.3c.7 0 1.3.5 1.5 1.1l.9 2.6c.2.6 0 1.2-.4 1.6L8.7 10c1.1 2.5 3 4.4 5.5 5.5l1.5-1.4c.4-.4 1-.6 1.6-.4l2.6.9c.6.2 1.1.8 1.1 1.5v2.3c0 1-.8 1.8-1.8 1.8C10.6 20.2 3.8 13.4 4 5Z"/></symbol>
+  <symbol id="i-buscar" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></symbol>
+  <symbol id="i-calendario" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M8 3v4M16 3v4M3.5 10h17"/></symbol>
+  <symbol id="i-personas" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><circle cx="17.5" cy="9" r="2.4"/><path d="M15 14.3c2.7.2 4.5 2.1 4.5 5.2"/></symbol>
+  <symbol id="i-escudo" viewBox="0 0 24 24"><path d="M12 2.5 4.5 5.5v5.6c0 5 3.2 8.6 7.5 10.4 4.3-1.8 7.5-5.4 7.5-10.4V5.5L12 2.5Z"/><path d="m9 12 2 2 4-4.2"/></symbol>
+  <symbol id="i-actividad" viewBox="0 0 24 24"><path d="M3 12h4l2.5-7L14 19l2.5-7H21"/></symbol>
+  <symbol id="i-cafe" viewBox="0 0 24 24"><path d="M4 8h13v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8Z"/><path d="M17 9.5h1.6c1.4 0 2.4 1.1 2.4 2.4 0 1.4-1 2.4-2.4 2.4H17"/><path d="M7 5c0-1 .6-1 .6-2M11 5c0-1 .6-1 .6-2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.5 2.5L16 9.5"/></symbol>
+  <symbol id="i-descarga" viewBox="0 0 24 24"><path d="M12 3v12m0 0-4-4m4 4 4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 6.5 8 6 8-6"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1"/></symbol>
+  <symbol id="i-facebook" viewBox="0 0 24 24"><path d="M14 21v-7h2.4l.4-3H14V9c0-.9.3-1.5 1.7-1.5H17V5c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2H8.5v3H11v7h3Z"/></symbol>
+  <symbol id="i-twitter" viewBox="0 0 24 24"><path d="M20 6.5c-.6.3-1.3.5-2 .6a3.4 3.4 0 0 0 1.5-1.9c-.7.4-1.4.7-2.2.9a3.4 3.4 0 0 0-5.8 3.1A9.7 9.7 0 0 1 4.5 5.9a3.4 3.4 0 0 0 1.1 4.6c-.6 0-1.1-.2-1.6-.4v.1c0 1.7 1.2 3.1 2.7 3.4-.5.1-1 .2-1.6.1.4 1.4 1.7 2.4 3.3 2.4A6.9 6.9 0 0 1 3 17.5a9.7 9.7 0 0 0 5.3 1.6c6.3 0 9.8-5.3 9.8-9.8v-.4c.7-.5 1.3-1.1 1.9-1.8Z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+  <symbol id="i-cerrar" viewBox="0 0 24 24"><path d="m5 5 14 14M19 5 5 19"/></symbol>
+  <symbol id="i-chevron-abajo" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-chevron-derecha" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+  <symbol id="i-alerta" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></symbol>
+  <symbol id="i-documento" viewBox="0 0 24 24"><path d="M6 3h8l5 5v13H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/></symbol>
+  <symbol id="i-jeringa" viewBox="0 0 24 24"><path d="m18 3 3 3-2 2-1-1-8.5 8.5.7 2.3-2 2-3-3 2-2 2.3.7L18 6l-1-1Z"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<div class="pagina">
+
+<!-- ============================= HEADER ============================= -->
+<header class="encabezado" id="encabezado">
+  <!-- Checkbox oculto: controla la apertura del menú móvil sin JavaScript -->
+  <input type="checkbox" id="interruptor-menu" class="encabezado__interruptor">
+
+  <div class="contenedor encabezado__fila">
+    <a href="#inicio" class="encabezado__logo">
+      <span class="encabezado__logo-marca" aria-hidden="true"><svg class="icono" style="width:1.1rem;height:1.1rem;stroke:#fff"><use href="#i-gota"/></svg></span>
+      <span class="encabezado__logo-texto">Entre<span>Venas</span></span>
+    </a>
+
+    <nav class="encabezado__nav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#como-donar">Cómo donar</a></li>
+        <li><a href="#centros">Centros</a></li>
+        <li><a href="#campanas">Campañas</a></li>
+        <li><a href="#vacunacion">Vacunación</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+        <li><a href="#documentacion">Documentación</a></li>
+      </ul>
+    </nav>
+
+    <div class="encabezado__acciones">
+      <a href="#campanas" class="btn--primario encabezado__cta">
+        <svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg>
+        Donar ahora
+      </a>
+      <label for="interruptor-menu" class="encabezado__disparador" aria-label="Abrir menú de navegación">
+        <svg class="icono icono--abrir" aria-hidden="true"><use href="#i-menu"/></svg>
+        <svg class="icono icono--cerrar" aria-hidden="true"><use href="#i-cerrar"/></svg>
+      </label>
+    </div>
+  </div>
+
+  <nav class="encabezado__nav-movil" id="nav-movil" aria-label="Navegación móvil">
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#como-donar">Cómo donar</a></li>
+      <li><a href="#centros">Centros</a></li>
+      <li><a href="#campanas">Campañas</a></li>
+      <li><a href="#vacunacion">Vacunación</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#documentacion">Documentación</a></li>
+    </ul>
+    <a href="#campanas" class="btn--primario btn--bloque encabezado__cta-movil">
+      <svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg>
+      Donar ahora
+    </a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============================= HERO ============================= -->
+  <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+    <div class="hero__fondo" aria-hidden="true">
+      <img src="https://images.unsplash.com/photo-1615461066159-fea0960485d5?w=1600&h=900&fit=crop&auto=format" alt="">
+      <div class="hero__velo"></div>
+    </div>
+
+    <div class="contenedor hero__contenido">
+      <div class="hero__texto">
+        <p class="hero__chip"><span class="hero__punto" aria-hidden="true"></span> La Plata, Argentina · Campañas activas</p>
+        <h1 id="hero-titulo" class="hero__titulo">Una donación puede salvar <span>hasta tres vidas</span></h1>
+        <p class="hero__parrafo">Encontrá centros de extracción, campañas activas y toda la información necesaria para donar sangre en La Plata.</p>
+        <div class="hero__acciones">
+          <a href="#centros" class="btn--primario">
+            <svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg>
+            Buscar centros
+          </a>
+          <a href="#requisitos" class="btn--sobre-oscuro btn--secundario" style="border-radius:0.6rem;">
+            <svg class="icono" aria-hidden="true"><use href="#i-escudo"/></svg>
+            Conocer requisitos
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__estadisticas">
+      <div class="contenedor grid-12">
+        <div class="hero__estadistica"><div class="hero__estadistica-valor">3</div><div class="hero__estadistica-etiqueta">vidas por donación</div></div>
+        <div class="hero__estadistica"><div class="hero__estadistica-valor">450 ml</div><div class="hero__estadistica-etiqueta">volumen extraído</div></div>
+        <div class="hero__estadistica"><div class="hero__estadistica-valor">6</div><div class="hero__estadistica-etiqueta">centros en La Plata</div></div>
+        <div class="hero__estadistica"><div class="hero__estadistica-valor">42 días</div><div class="hero__estadistica-etiqueta">frecuencia mínima</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= IMPORTANCIA ========================= -->
+  <section class="seccion seccion-importancia" aria-labelledby="importancia-titulo">
+    <div class="contenedor grid-12">
+      <div class="seccion-importancia__texto">
+        <span class="cabecera-seccion__ojo">Por qué importa</span>
+        <h2 id="importancia-titulo" class="cabecera-seccion__titulo" style="text-align:left;margin-bottom:var(--espacio-md);">Cada gota cuenta. Cada donante es un héroe anónimo.</h2>
+        <p class="seccion-importancia__parrafo">En Argentina se necesitan más de 1.500.000 donaciones de sangre por año para abastecer la demanda hospitalaria. Sin embargo, solo el 1,7% de la población dona regularmente. La sangre no se puede fabricar artificialmente: depende exclusivamente de la solidaridad humana.</p>
+        <p class="seccion-importancia__parrafo">Cada bolsa de sangre puede separarse en componentes como glóbulos rojos, plaquetas y plasma para tratar hasta tres pacientes distintos con necesidades específicas: accidentes, cirugías, leucemia, anemia crónica, y más.</p>
+
+        <div class="seccion-importancia__datos">
+          <div class="bloque-info">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-personas"/></svg></span>
+            <div><p class="bloque-info__titulo">1 de cada 3</p><p class="bloque-info__desc">personas necesitará sangre alguna vez en su vida</p></div>
+          </div>
+          <div class="bloque-info">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-actividad"/></svg></span>
+            <div><p class="bloque-info__titulo">5.000+ unidades</p><p class="bloque-info__desc">se necesitan cada día en hospitales argentinos</p></div>
+          </div>
+          <div class="bloque-info">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <div><p class="bloque-info__titulo">100% seguro</p><p class="bloque-info__desc">el proceso es estéril, no contagia ninguna enfermedad</p></div>
+          </div>
+          <div class="bloque-info">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+            <div><p class="bloque-info__titulo">50 min. máximo</p><p class="bloque-info__desc">dura toda la experiencia desde el registro</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seccion-importancia__media">
+        <div class="seccion-importancia__imagen">
+          <img src="https://images.unsplash.com/photo-1536856136534-bb679c52a9aa?w=800&h=1000&fit=crop&auto=format" alt="Persona donando sangre asistida por personal de enfermería">
+        </div>
+        <div class="seccion-importancia__insignia">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+          <div><strong>+120.000</strong><span>donantes en La Plata en 2024</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CENTROS DE EXTRACCIÓN ===================== -->
+  <section id="centros" class="seccion seccion--alterna" aria-labelledby="centros-titulo">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <span class="cabecera-seccion__ojo">Red de centros</span>
+        <h2 id="centros-titulo" class="cabecera-seccion__titulo">Centros de extracción</h2>
+        <p class="cabecera-seccion__parrafo">Encontrá el centro más cercano a vos y planificá tu donación.</p>
+      </div>
+
+      <form class="buscador-centros" role="search" aria-label="Buscar centros de donación" action="#centros" method="get">
+        <div class="buscador-centros__fila">
+          <div class="buscador-centros__campo">
+            <label for="busqueda-centro" class="visualmente-oculto">Buscar por nombre o dirección</label>
+            <svg class="icono" aria-hidden="true"><use href="#i-buscar"/></svg>
+            <input type="search" id="busqueda-centro" name="q" class="campo-texto" placeholder="Buscar por nombre o dirección…">
+          </div>
+          <div class="buscador-centros__selector">
+            <label for="filtro-zona" class="visualmente-oculto">Filtrar por zona</label>
+            <select id="filtro-zona" name="zona" class="selector">
+              <option value="todas">Todas las zonas</option>
+              <option value="centro">Centro</option>
+              <option value="norte">Norte</option>
+              <option value="sur">Sur</option>
+            </select>
+          </div>
+          <button type="submit" class="btn--primario buscador-centros__boton">
+            <svg class="icono" aria-hidden="true"><use href="#i-buscar"/></svg>
+            Buscar
+          </button>
+        </div>
+      </form>
+
+      <div class="grilla-centros">
+
+        <article class="grilla-centros__item">
+          <div class="tarjeta-centro">
+            <div class="tarjeta-centro__cuerpo">
+              <div class="tarjeta-centro__encabezado">
+                <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+                <span class="etiqueta etiqueta--disponible"><span aria-hidden="true">●</span> Disponible</span>
+              </div>
+              <div>
+                <h3 class="tarjeta-centro__nombre">Hospital San Martín</h3>
+                <ul class="tarjeta-centro__datos">
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg> Calle 1 esq. 70, La Plata</li>
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-reloj"/></svg> Lun–Vie 7:00–13:00</li>
+                  <li class="tarjeta-centro__dato tarjeta-centro__dato--telefono"><svg class="icono" aria-hidden="true"><use href="#i-telefono"/></svg> 0221 457-5555</li>
+                </ul>
+              </div>
+              <a href="#contacto" class="btn--secundario btn--bloque tarjeta-centro__accion">Ver información</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="grilla-centros__item">
+          <div class="tarjeta-centro">
+            <div class="tarjeta-centro__cuerpo">
+              <div class="tarjeta-centro__encabezado">
+                <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+                <span class="etiqueta etiqueta--disponible"><span aria-hidden="true">●</span> Disponible</span>
+              </div>
+              <div>
+                <h3 class="tarjeta-centro__nombre">Hospital Rossi</h3>
+                <ul class="tarjeta-centro__datos">
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg> Calle 37 N° 183, La Plata</li>
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-reloj"/></svg> Lun–Vie 8:00–12:00</li>
+                  <li class="tarjeta-centro__dato tarjeta-centro__dato--telefono"><svg class="icono" aria-hidden="true"><use href="#i-telefono"/></svg> 0221 457-7200</li>
+                </ul>
+              </div>
+              <a href="#contacto" class="btn--secundario btn--bloque tarjeta-centro__accion">Ver información</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="grilla-centros__item">
+          <div class="tarjeta-centro">
+            <div class="tarjeta-centro__cuerpo">
+              <div class="tarjeta-centro__encabezado">
+                <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+                <span class="etiqueta etiqueta--no-disponible"><span aria-hidden="true">●</span> No disponible</span>
+              </div>
+              <div>
+                <h3 class="tarjeta-centro__nombre">HIGA La Plata</h3>
+                <ul class="tarjeta-centro__datos">
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg> Calle 66 N° 1 1/2, La Plata</li>
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-reloj"/></svg> Lun–Dom 8:00–14:00</li>
+                  <li class="tarjeta-centro__dato tarjeta-centro__dato--telefono"><svg class="icono" aria-hidden="true"><use href="#i-telefono"/></svg> 0221 422-1001</li>
+                </ul>
+              </div>
+              <a href="#contacto" class="btn--secundario btn--bloque tarjeta-centro__accion">Ver información</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="grilla-centros__item">
+          <div class="tarjeta-centro">
+            <div class="tarjeta-centro__cuerpo">
+              <div class="tarjeta-centro__encabezado">
+                <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+                <span class="etiqueta etiqueta--disponible"><span aria-hidden="true">●</span> Disponible</span>
+              </div>
+              <div>
+                <h3 class="tarjeta-centro__nombre">Clínica de la Mujer</h3>
+                <ul class="tarjeta-centro__datos">
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg> Diagonal 74 N° 1360, La Plata</li>
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-reloj"/></svg> Lun–Vie 9:00–13:00</li>
+                  <li class="tarjeta-centro__dato tarjeta-centro__dato--telefono"><svg class="icono" aria-hidden="true"><use href="#i-telefono"/></svg> 0221 483-2200</li>
+                </ul>
+              </div>
+              <a href="#contacto" class="btn--secundario btn--bloque tarjeta-centro__accion">Ver información</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="grilla-centros__item">
+          <div class="tarjeta-centro">
+            <div class="tarjeta-centro__cuerpo">
+              <div class="tarjeta-centro__encabezado">
+                <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+                <span class="etiqueta etiqueta--disponible"><span aria-hidden="true">●</span> Disponible</span>
+              </div>
+              <div>
+                <h3 class="tarjeta-centro__nombre">Hospital de Niños</h3>
+                <ul class="tarjeta-centro__datos">
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg> Calle 14 N° 1631, La Plata</li>
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-reloj"/></svg> Mar–Sáb 8:00–11:00</li>
+                  <li class="tarjeta-centro__dato tarjeta-centro__dato--telefono"><svg class="icono" aria-hidden="true"><use href="#i-telefono"/></svg> 0221 453-5901</li>
+                </ul>
+              </div>
+              <a href="#contacto" class="btn--secundario btn--bloque tarjeta-centro__accion">Ver información</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="grilla-centros__item">
+          <div class="tarjeta-centro">
+            <div class="tarjeta-centro__cuerpo">
+              <div class="tarjeta-centro__encabezado">
+                <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+                <span class="etiqueta etiqueta--disponible"><span aria-hidden="true">●</span> Disponible</span>
+              </div>
+              <div>
+                <h3 class="tarjeta-centro__nombre">Banco de Sangre Municipal</h3>
+                <ul class="tarjeta-centro__datos">
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg> Av. 44 N° 527, La Plata</li>
+                  <li class="tarjeta-centro__dato"><svg class="icono" aria-hidden="true"><use href="#i-reloj"/></svg> Lun–Vie 7:30–13:30</li>
+                  <li class="tarjeta-centro__dato tarjeta-centro__dato--telefono"><svg class="icono" aria-hidden="true"><use href="#i-telefono"/></svg> 0221 422-9900</li>
+                </ul>
+              </div>
+              <a href="#contacto" class="btn--secundario btn--bloque tarjeta-centro__accion">Ver información</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ REQUISITOS ============================ -->
+  <section id="requisitos" class="seccion" aria-labelledby="requisitos-titulo">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <span class="cabecera-seccion__ojo">¿Puedo donar?</span>
+        <h2 id="requisitos-titulo" class="cabecera-seccion__titulo">Requisitos para donar</h2>
+        <p class="cabecera-seccion__parrafo">Verificá que cumplís con los requisitos básicos antes de acercarte a un centro. Menores de 18 años pueden donar desde los 16 con autorización de sus padres o tutores.</p>
+      </div>
+
+      <div class="seccion-requisitos__grilla">
+        <div class="item-requisito">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-personas"/></svg></span>
+          <h3 class="item-requisito__titulo">Edad</h3>
+          <p class="item-requisito__desc">Tener entre 16 y 65 años. Menores de 18 con autorización de padres.</p>
+        </div>
+        <div class="item-requisito">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-actividad"/></svg></span>
+          <h3 class="item-requisito__titulo">Peso</h3>
+          <p class="item-requisito__desc">Pesar más de 50 kg para poder donar de forma segura.</p>
+        </div>
+        <div class="item-requisito">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+          <h3 class="item-requisito__titulo">Salud</h3>
+          <p class="item-requisito__desc">Sentirse bien de salud, sin fiebre, resfríos ni síntomas en las últimas 24 horas.</p>
+        </div>
+        <div class="item-requisito">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-documento"/></svg></span>
+          <h3 class="item-requisito__titulo">Documento</h3>
+          <p class="item-requisito__desc">Presentar DNI o documento de identidad vigente.</p>
+        </div>
+        <div class="item-requisito">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-cafe"/></svg></span>
+          <h3 class="item-requisito__titulo">Alimentación</h3>
+          <p class="item-requisito__desc">Haber comido liviano al menos 2 horas antes. Evitar alimentos grasos.</p>
+        </div>
+        <div class="item-requisito">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-gota"/></svg></span>
+          <h3 class="item-requisito__titulo">Hidratación</h3>
+          <p class="item-requisito__desc">Estar bien hidratado. Tomar suficiente agua antes y después de la donación.</p>
+        </div>
+        <div class="item-requisito">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-escudo"/></svg></span>
+          <h3 class="item-requisito__titulo">Sin tatuajes recientes</h3>
+          <p class="item-requisito__desc">No haber realizado tatuajes o piercings en los últimos 12 meses.</p>
+        </div>
+        <div class="item-requisito">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-check"/></svg></span>
+          <h3 class="item-requisito__titulo">Conductas de riesgo</h3>
+          <p class="item-requisito__desc">No haber tenido conductas de riesgo en los últimos meses según el protocolo vigente.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= PROCESO DE DONACIÓN ========================= -->
+  <section id="como-donar" class="seccion seccion--oscura seccion-proceso" aria-labelledby="proceso-titulo">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <span class="cabecera-seccion__ojo">Paso a paso</span>
+        <h2 id="proceso-titulo" class="cabecera-seccion__titulo" style="color:#fff;">El proceso de donación</h2>
+        <p class="cabecera-seccion__parrafo">Desde que llegás hasta que te vas, todo dura menos de una hora.</p>
+      </div>
+
+      <ol class="seccion-proceso__pasos" style="list-style:none;padding:0;margin:0;">
+        <li class="paso-proceso">
+          <span class="paso-proceso__marcador"><svg class="icono icono--grande" style="color:#fff" aria-hidden="true"><use href="#i-documento"/></svg><span class="paso-proceso__numero">1</span></span>
+          <div><h3 class="paso-proceso__titulo">Registro</h3><p class="paso-proceso__desc">Completás un formulario con tus datos personales y respondés preguntas sobre tu historial de salud.</p></div>
+        </li>
+        <li class="paso-proceso">
+          <span class="paso-proceso__marcador"><svg class="icono icono--grande" style="color:#fff" aria-hidden="true"><use href="#i-escudo"/></svg><span class="paso-proceso__numero">2</span></span>
+          <div><h3 class="paso-proceso__titulo">Entrevista médica</h3><p class="paso-proceso__desc">Un profesional de la salud revisa tu información y verifica que estés en condiciones de donar.</p></div>
+        </li>
+        <li class="paso-proceso">
+          <span class="paso-proceso__marcador"><svg class="icono icono--grande" style="color:#fff" aria-hidden="true"><use href="#i-gota"/></svg><span class="paso-proceso__numero">3</span></span>
+          <div><h3 class="paso-proceso__titulo">Donación</h3><p class="paso-proceso__desc">La extracción dura entre 8 y 10 minutos. Se extraen aproximadamente 450 ml de sangre.</p></div>
+        </li>
+        <li class="paso-proceso">
+          <span class="paso-proceso__marcador"><svg class="icono icono--grande" style="color:#fff" aria-hidden="true"><use href="#i-cafe"/></svg><span class="paso-proceso__numero">4</span></span>
+          <div><h3 class="paso-proceso__titulo">Refrigerio</h3><p class="paso-proceso__desc">Después de donar, recibís un refrigerio y descansás unos minutos en el área de recuperación.</p></div>
+        </li>
+        <li class="paso-proceso">
+          <span class="paso-proceso__marcador"><svg class="icono icono--grande" style="color:#fff" aria-hidden="true"><use href="#i-check"/></svg><span class="paso-proceso__numero">5</span></span>
+          <div><h3 class="paso-proceso__titulo">Recuperación</h3><p class="paso-proceso__desc">Podés retomar tus actividades normales. Te recomendamos tomar mucho líquido durante el día.</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================ CAMPAÑAS ============================ -->
+  <section id="campanas" class="seccion" aria-labelledby="campanas-titulo">
+    <div class="contenedor">
+      <div class="seccion-campanas__encabezado">
+        <div>
+          <span class="cabecera-seccion__ojo">Próximas fechas</span>
+          <h2 id="campanas-titulo" class="cabecera-seccion__titulo" style="text-align:left;margin-bottom:0;">Campañas activas</h2>
+        </div>
+        <a href="#" class="seccion-campanas__ver-todas">Ver todas las campañas <svg class="icono" aria-hidden="true"><use href="#i-chevron-derecha"/></svg></a>
+      </div>
+
+      <div class="grilla-campanas">
+        <article class="grilla-campanas__item">
+          <div class="item-campana">
+            <div class="item-campana__franja" aria-hidden="true"></div>
+            <div class="item-campana__cuerpo">
+              <div class="item-campana__meta">
+                <span class="item-campana__fecha"><svg class="icono" aria-hidden="true"><use href="#i-calendario"/></svg> 15 de julio, 2026</span>
+                <span class="etiqueta etiqueta--urgente"><svg class="icono" style="width:0.8rem;height:0.8rem" aria-hidden="true"><use href="#i-alerta"/></svg> Urgente</span>
+              </div>
+              <div>
+                <h3 class="item-campana__titulo">Campaña Solidaria Julio 2026</h3>
+                <p class="item-campana__lugar"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg> Plaza Moreno, La Plata</p>
+                <p class="item-campana__desc">Gran campaña de donación en el corazón de la ciudad. Buscamos reunir 500 donantes en un solo día para abastecer los hospitales de la región.</p>
+              </div>
+              <a href="#contacto" class="btn--primario btn--bloque item-campana__accion">Participar <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="grilla-campanas__item">
+          <div class="item-campana">
+            <div class="item-campana__franja" aria-hidden="true"></div>
+            <div class="item-campana__cuerpo">
+              <div class="item-campana__meta">
+                <span class="item-campana__fecha"><svg class="icono" aria-hidden="true"><use href="#i-calendario"/></svg> 22 de julio, 2026</span>
+              </div>
+              <div>
+                <h3 class="item-campana__titulo">Donación en la UNLP</h3>
+                <p class="item-campana__lugar"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg> Rectorado UNLP, Av. 7 N° 776</p>
+                <p class="item-campana__desc">En alianza con la Universidad Nacional de La Plata, invitamos a toda la comunidad universitaria a ser parte del cambio.</p>
+              </div>
+              <a href="#contacto" class="btn--primario btn--bloque item-campana__accion">Participar <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="grilla-campanas__item">
+          <div class="item-campana">
+            <div class="item-campana__franja" aria-hidden="true"></div>
+            <div class="item-campana__cuerpo">
+              <div class="item-campana__meta">
+                <span class="item-campana__fecha"><svg class="icono" aria-hidden="true"><use href="#i-calendario"/></svg> 5 de agosto, 2026</span>
+              </div>
+              <div>
+                <h3 class="item-campana__titulo">Maratón de Donación – Agosto</h3>
+                <p class="item-campana__lugar"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg> Estadio Ciudad de La Plata</p>
+                <p class="item-campana__desc">Una jornada de 12 horas continuas de donación con música, actividades culturales y stands informativos para toda la familia.</p>
+              </div>
+              <a href="#contacto" class="btn--primario btn--bloque item-campana__accion">Participar <svg class="icono" aria-hidden="true"><use href="#i-flecha"/></svg></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================== VACUNACIÓN =========================== -->
+  <section id="vacunacion" class="seccion seccion--alterna seccion-vacunacion" aria-labelledby="vacunacion-titulo">
+    <div class="contenedor grid-12">
+      <div class="seccion-vacunacion__media">
+        <div class="seccion-vacunacion__imagen">
+          <img src="https://images.unsplash.com/photo-1615461065624-21b562ee5566?w=800&h=600&fit=crop&auto=format" alt="Personal médico asistiendo a un paciente durante una vacunación">
+        </div>
+      </div>
+      <div class="seccion-vacunacion__texto">
+        <span class="cabecera-seccion__ojo">Salud preventiva</span>
+        <h2 id="vacunacion-titulo" class="cabecera-seccion__titulo" style="text-align:left;">Calendario de vacunación vigente</h2>
+        <p class="seccion-vacunacion__parrafo">La vacunación es parte fundamental de la salud pública. Algunas vacunas tienen un período de espera antes de poder donar sangre. Consultá con el personal médico del centro.</p>
+
+        <div class="seccion-vacunacion__lista">
+          <div class="tarjeta-vacunacion">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-jeringa"/></svg></span>
+            <div class="tarjeta-vacunacion__info">
+              <p class="tarjeta-vacunacion__nombre">Gripe (influenza)</p>
+              <p class="tarjeta-vacunacion__detalle">Hasta agosto 2026 · Todos los centros de salud</p>
+            </div>
+            <span class="etiqueta etiqueta--gratuita">Gratuita</span>
+          </div>
+          <div class="tarjeta-vacunacion">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-jeringa"/></svg></span>
+            <div class="tarjeta-vacunacion__info">
+              <p class="tarjeta-vacunacion__nombre">COVID-19 (bivalente)</p>
+              <p class="tarjeta-vacunacion__detalle">Disponible todo el año · CAPS y hospitales</p>
+            </div>
+            <span class="etiqueta etiqueta--gratuita">Gratuita</span>
+          </div>
+          <div class="tarjeta-vacunacion">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-jeringa"/></svg></span>
+            <div class="tarjeta-vacunacion__info">
+              <p class="tarjeta-vacunacion__nombre">Hepatitis B</p>
+              <p class="tarjeta-vacunacion__detalle">Todo el año · CAPS de referencia</p>
+            </div>
+            <span class="etiqueta etiqueta--gratuita">Gratuita</span>
+          </div>
+          <div class="tarjeta-vacunacion">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-jeringa"/></svg></span>
+            <div class="tarjeta-vacunacion__info">
+              <p class="tarjeta-vacunacion__nombre">Triple bacteriana acelular</p>
+              <p class="tarjeta-vacunacion__detalle">Embarazo y posparto · Todos los centros obstétricos</p>
+            </div>
+            <span class="etiqueta etiqueta--gratuita">Gratuita</span>
+          </div>
+        </div>
+
+        <a href="#contacto" class="btn--primario">
+          <svg class="icono" aria-hidden="true"><use href="#i-calendario"/></svg>
+          Más información sobre vacunación
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================ FAQ ================================ -->
+  <section id="faq" class="seccion seccion-faq" aria-labelledby="faq-titulo">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <span class="cabecera-seccion__ojo">Tus dudas</span>
+        <h2 id="faq-titulo" class="cabecera-seccion__titulo">Preguntas frecuentes</h2>
+        <p class="cabecera-seccion__parrafo">Respondemos las preguntas más comunes sobre la donación de sangre.</p>
+      </div>
+
+      <div>
+        <details class="item-faq">
+          <summary class="item-faq__pregunta">¿Duele donar sangre? <svg class="icono" aria-hidden="true"><use href="#i-chevron-abajo"/></svg></summary>
+          <p class="item-faq__respuesta">La extracción es mínimamente molesta. Se utiliza una aguja de calibre estándar y el proceso dura entre 8 y 10 minutos. La mayoría de los donantes describen la experiencia como indolora o con una leve presión.</p>
+        </details>
+        <details class="item-faq">
+          <summary class="item-faq__pregunta">¿Puedo donar si tomo medicación? <svg class="icono" aria-hidden="true"><use href="#i-chevron-abajo"/></svg></summary>
+          <p class="item-faq__respuesta">Depende del medicamento. Algunos no representan ningún impedimento (anticonceptivos, vitaminas, antihistamínicos), mientras que otros requieren un período de espera. El médico del centro evaluará tu situación particular durante la entrevista previa.</p>
+        </details>
+        <details class="item-faq">
+          <summary class="item-faq__pregunta">¿Cada cuánto tiempo puedo donar? <svg class="icono" aria-hidden="true"><use href="#i-chevron-abajo"/></svg></summary>
+          <p class="item-faq__respuesta">Los hombres pueden donar cada 60 días (máximo 4 veces al año). Las mujeres pueden donar cada 90 días (máximo 3 veces al año). El organismo repone el volumen de sangre en pocas horas y los glóbulos rojos en 4–8 semanas.</p>
+        </details>
+        <details class="item-faq">
+          <summary class="item-faq__pregunta">¿Necesito ir en ayunas? <svg class="icono" aria-hidden="true"><use href="#i-chevron-abajo"/></svg></summary>
+          <p class="item-faq__respuesta">No es necesario el ayuno. De hecho, se recomienda haber comido una comida liviana al menos 2 horas antes. Evitá alimentos grasos o fritos antes de la donación, ya que pueden afectar la calidad de la sangre.</p>
+        </details>
+        <details class="item-faq">
+          <summary class="item-faq__pregunta">¿Puedo donar si tuve COVID-19? <svg class="icono" aria-hidden="true"><use href="#i-chevron-abajo"/></svg></summary>
+          <p class="item-faq__respuesta">Sí, podés donar sangre si ya te recuperaste del COVID-19. Debés esperar al menos 14 días desde que no tenés síntomas. Si recibiste la vacuna, no hay período de espera adicional en la mayoría de los casos.</p>
+        </details>
+        <details class="item-faq">
+          <summary class="item-faq__pregunta">¿Qué pasa si soy menor de 18 años? <svg class="icono" aria-hidden="true"><use href="#i-chevron-abajo"/></svg></summary>
+          <p class="item-faq__respuesta">Los jóvenes de 16 y 17 años pueden donar con autorización escrita de sus padres o tutores legales. A partir de los 18 años, la donación es autónoma.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== RECURSOS EDUCATIVOS ======================== -->
+  <section id="recursos" class="seccion seccion--alterna" aria-labelledby="recursos-titulo">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <span class="cabecera-seccion__ojo">Material de apoyo</span>
+        <h2 id="recursos-titulo" class="cabecera-seccion__titulo">Recursos educativos</h2>
+        <p class="cabecera-seccion__parrafo">Guías y recomendaciones de prevención en salud para acompañar tu decisión de donar.</p>
+      </div>
+
+      <div class="grilla-recursos">
+        <article class="recurso">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-descarga"/></svg></span>
+          <h3 class="recurso__titulo">Guía del donante</h3>
+          <p class="recurso__desc">Todo lo que necesitás saber antes de tu primera donación, explicado en un lenguaje claro y accesible.</p>
+          <div class="recurso__pie"><span class="recurso__tipo">PDF · 2,4 MB</span><a href="#" class="recurso__descargar">Descargar <svg class="icono" style="width:0.85rem;height:0.85rem" aria-hidden="true"><use href="#i-descarga"/></svg></a></div>
+        </article>
+        <article class="recurso">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-escudo"/></svg></span>
+          <h3 class="recurso__titulo">Recomendaciones de prevención</h3>
+          <p class="recurso__desc">Hábitos saludables, alimentación y conductas que protegen tu salud y la de quienes reciben tu sangre.</p>
+          <div class="recurso__pie"><span class="recurso__tipo">PDF · 1,8 MB</span><a href="#" class="recurso__descargar">Descargar <svg class="icono" style="width:0.85rem;height:0.85rem" aria-hidden="true"><use href="#i-descarga"/></svg></a></div>
+        </article>
+        <article class="recurso">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-personas"/></svg></span>
+          <h3 class="recurso__titulo">Salud comunitaria</h3>
+          <p class="recurso__desc">Información sobre la importancia de la donación colectiva y cómo movilizar a tu comunidad.</p>
+          <div class="recurso__pie"><span class="recurso__tipo">PDF · 3,1 MB</span><a href="#" class="recurso__descargar">Descargar <svg class="icono" style="width:0.85rem;height:0.85rem" aria-hidden="true"><use href="#i-descarga"/></svg></a></div>
+        </article>
+        <article class="recurso">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-actividad"/></svg></span>
+          <h3 class="recurso__titulo">Estadísticas de La Plata</h3>
+          <p class="recurso__desc">Datos actualizados sobre necesidades de sangre, disponibilidad por grupo y campañas realizadas.</p>
+          <div class="recurso__pie"><span class="recurso__tipo">PDF · 1,2 MB</span><a href="#" class="recurso__descargar">Descargar <svg class="icono" style="width:0.85rem;height:0.85rem" aria-hidden="true"><use href="#i-descarga"/></svg></a></div>
+        </article>
+        <article class="recurso">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-corazon"/></svg></span>
+          <h3 class="recurso__titulo">Historias de donantes</h3>
+          <p class="recurso__desc">Testimonios reales de personas cuyas vidas fueron salvadas gracias a la donación de sangre en La Plata.</p>
+          <div class="recurso__pie"><span class="recurso__tipo">PDF · 900 KB</span><a href="#" class="recurso__descargar">Descargar <svg class="icono" style="width:0.85rem;height:0.85rem" aria-hidden="true"><use href="#i-descarga"/></svg></a></div>
+        </article>
+        <article class="recurso">
+          <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-jeringa"/></svg></span>
+          <h3 class="recurso__titulo">Vacunación y donación</h3>
+          <p class="recurso__desc">Guía sobre períodos de espera tras vacunaciones, qué vacunas permiten donar y cuáles no.</p>
+          <div class="recurso__pie"><span class="recurso__tipo">PDF · 1,5 MB</span><a href="#" class="recurso__descargar">Descargar <svg class="icono" style="width:0.85rem;height:0.85rem" aria-hidden="true"><use href="#i-descarga"/></svg></a></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= CONTACTO ============================= -->
+  <section id="contacto" class="seccion seccion-contacto" aria-labelledby="contacto-titulo">
+    <div class="contenedor grid-12">
+      <div class="seccion-contacto__info">
+        <span class="cabecera-seccion__ojo">Escribinos</span>
+        <h2 id="contacto-titulo" class="cabecera-seccion__titulo" style="text-align:left;">Contacto</h2>
+        <p class="seccion-contacto__parrafo">¿Tenés preguntas, sugerencias o querés organizar una campaña con tu organización? Nuestro equipo está disponible para ayudarte.</p>
+
+        <div class="seccion-contacto__lista">
+          <div class="seccion-contacto__dato">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-mail"/></svg></span>
+            <div><p class="seccion-contacto__dato-etiqueta">Email</p><p class="seccion-contacto__dato-valor">info@entrevenas.org.ar</p></div>
+          </div>
+          <div class="seccion-contacto__dato">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-telefono"/></svg></span>
+            <div><p class="seccion-contacto__dato-etiqueta">Teléfono</p><p class="seccion-contacto__dato-valor">0221 400-1234</p></div>
+          </div>
+          <div class="seccion-contacto__dato">
+            <span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-mapa"/></svg></span>
+            <div><p class="seccion-contacto__dato-etiqueta">Oficina</p><p class="seccion-contacto__dato-valor">Av. 7 N° 776, La Plata, Buenos Aires</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="seccion-contacto__formulario">
+        <form class="formulario-contacto" action="#contacto" method="post">
+          <div class="formulario-contacto__campo">
+            <label for="nombre">Nombre completo</label>
+            <input class="campo-texto" type="text" id="nombre" name="nombre" placeholder="María González" required>
+          </div>
+          <div class="formulario-contacto__campo">
+            <label for="email">Correo electrónico</label>
+            <input class="campo-texto" type="email" id="email" name="email" placeholder="maria@ejemplo.com" required>
+          </div>
+          <div class="formulario-contacto__campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea class="campo-texto" id="mensaje" name="mensaje" placeholder="Escribí tu consulta aquí…" required></textarea>
+          </div>
+          <button type="submit" class="btn--primario btn--bloque">
+            <svg class="icono" aria-hidden="true"><use href="#i-mail"/></svg>
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== DOCUMENTACIÓN DEL SISTEMA ====================== -->
+  <section id="documentacion" class="seccion seccion--alterna seccion-documentacion" aria-labelledby="documentacion-titulo">
+    <div class="contenedor">
+      <div class="cabecera-seccion">
+        <span class="cabecera-seccion__ojo">Sistema de diseño</span>
+        <h2 id="documentacion-titulo" class="cabecera-seccion__titulo">Documentación integrada</h2>
+        <p class="cabecera-seccion__parrafo">Síntesis del proceso de investigación, diseño y construcción del sistema visual de Entre Venas.</p>
+      </div>
+
+      <!-- 4.1 Sobre el caso -->
+      <div class="doc-bloque">
+        <h3 class="doc-bloque__titulo">4.1 · Sobre el caso</h3>
+        <p class="doc-bloque__texto">Entre Venas es una plataforma informativa y de concientización sobre donación de sangre en La Plata, con una sección complementaria sobre vacunación. Está dirigida a habitantes de la ciudad de entre 16 y 65 años, tanto donantes primerizos como habituales. Su objetivo es centralizar la información sobre centros, requisitos y campañas activas, reduciendo la distancia entre la intención de donar y el saber cómo hacerlo.</p>
+      </div>
+
+      <!-- 4.2 Análisis de referencia -->
+      <div class="doc-bloque">
+        <h3 class="doc-bloque__titulo">4.2 · Análisis de referencia</h3>
+        <p class="doc-bloque__texto">Se analizó <strong>DonarArg</strong>, sitio de referencia nacional en donación de sangre, deconstruyéndolo en sus cinco niveles atómicos (átomos, moléculas, organismos, plantillas y páginas). El análisis reveló una paleta e inventario de componentes sólidos, pero con inconsistencias: variantes de color secundario no definidas, pesos tipográficos sin jerarquía fija y espaciados entre ítems irregulares. Esas observaciones influyeron directamente en el sistema propio: cada variable de color, tipografía y espaciado quedó documentada con un único valor, y la nomenclatura de componentes (<code>.tarjeta-centro</code>, <code>.item-requisito</code>, <code>.paso-proceso</code>) se definió desde el inicio para evitar la falta de consistencia detectada.</p>
+      </div>
+
+      <!-- 4.3 Variables del sistema -->
+      <div class="doc-bloque">
+        <h3 class="doc-bloque__titulo">4.3 · Variables del sistema</h3>
+
+        <p class="doc-subtitulo">Paleta de colores</p>
+        <div class="doc-paleta">
+          <div class="doc-color"><span class="doc-color__muestra" style="background:var(--color-accion)"></span><span class="doc-color__nombre">--color-accion</span><span class="doc-color__valor">#B91C1C</span></div>
+          <div class="doc-color"><span class="doc-color__muestra" style="background:var(--color-accion-suave)"></span><span class="doc-color__nombre">--color-accion-suave</span><span class="doc-color__valor">#FECACA</span></div>
+          <div class="doc-color"><span class="doc-color__muestra" style="background:var(--color-apoyo)"></span><span class="doc-color__nombre">--color-apoyo</span><span class="doc-color__valor">#1E293B</span></div>
+          <div class="doc-color"><span class="doc-color__muestra" style="background:var(--color-texto)"></span><span class="doc-color__nombre">--color-texto</span><span class="doc-color__valor">#111827</span></div>
+          <div class="doc-color"><span class="doc-color__muestra" style="background:var(--color-neutro)"></span><span class="doc-color__nombre">--color-neutro</span><span class="doc-color__valor">#F1F5F9</span></div>
+          <div class="doc-color"><span class="doc-color__muestra doc-color__muestra--borde" style="background:var(--color-fondo)"></span><span class="doc-color__nombre">--color-fondo</span><span class="doc-color__valor">#FFFFFF</span></div>
+        </div>
+
+        <p class="doc-subtitulo">Escala tipográfica</p>
+        <div class="doc-tipografia">
+          <div class="doc-tipografia__fila"><span style="font-size:var(--tipo-display)">Aa</span><code>--tipo-display · 2.5rem</code></div>
+          <div class="doc-tipografia__fila"><span style="font-size:var(--tipo-grande)">Aa</span><code>--tipo-grande · 1.5rem</code></div>
+          <div class="doc-tipografia__fila"><span style="font-size:var(--tipo-base)">Aa</span><code>--tipo-base · 1rem</code></div>
+          <div class="doc-tipografia__fila"><span style="font-size:var(--tipo-pequeno)">Aa</span><code>--tipo-pequeno · 0.875rem</code></div>
+        </div>
+
+        <p class="doc-subtitulo">Escala de espaciado</p>
+        <div class="doc-espaciado">
+          <div class="doc-espaciado__fila"><span class="doc-espaciado__barra" style="width:var(--espacio-xs)"></span><code>--espacio-xs · 0.25rem</code></div>
+          <div class="doc-espaciado__fila"><span class="doc-espaciado__barra" style="width:var(--espacio-sm)"></span><code>--espacio-sm · 0.5rem</code></div>
+          <div class="doc-espaciado__fila"><span class="doc-espaciado__barra" style="width:var(--espacio-md)"></span><code>--espacio-md · 1rem</code></div>
+          <div class="doc-espaciado__fila"><span class="doc-espaciado__barra" style="width:var(--espacio-lg)"></span><code>--espacio-lg · 2rem</code></div>
+          <div class="doc-espaciado__fila"><span class="doc-espaciado__barra" style="width:2.5rem"></span><code>--espacio-seccion · 4rem</code></div>
+        </div>
+      </div>
+
+      <!-- 4.4 Inventario de componentes -->
+      <div class="doc-bloque">
+        <h3 class="doc-bloque__titulo">4.4 · Inventario de componentes</h3>
+
+        <p class="doc-subtitulo">Átomos</p>
+        <div class="doc-muestra">
+          <div class="doc-muestra__item"><a class="btn--primario" href="#" onclick="return false" tabindex="-1">Botón</a><code>.btn--primario</code></div>
+          <div class="doc-muestra__item"><span class="etiqueta etiqueta--disponible">● Disponible</span><code>.etiqueta</code></div>
+          <div class="doc-muestra__item"><input class="campo-texto" placeholder="Buscar…" disabled><code>.campo-texto</code></div>
+        </div>
+
+        <p class="doc-subtitulo">Moléculas</p>
+        <div class="doc-muestra">
+          <div class="doc-muestra__item doc-muestra__item--ancho"><div class="item-requisito" style="max-width:220px"><span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-personas"/></svg></span><h4 class="item-requisito__titulo">Edad</h4><p class="item-requisito__desc">16 a 65 años.</p></div><code>.item-requisito</code></div>
+          <div class="doc-muestra__item doc-muestra__item--ancho"><div class="tarjeta-vacunacion" style="max-width:260px"><span class="icono-caja"><svg class="icono" aria-hidden="true"><use href="#i-jeringa"/></svg></span><div class="tarjeta-vacunacion__info"><p class="tarjeta-vacunacion__nombre">Gripe</p><p class="tarjeta-vacunacion__detalle">Hasta agosto 2026</p></div><span class="etiqueta etiqueta--gratuita">Gratuita</span></div><code>.tarjeta-vacunacion</code></div>
+        </div>
+
+        <p class="doc-subtitulo">Organismos</p>
+        <p class="doc-bloque__texto doc-bloque__texto--chico"><code>.encabezado</code>, <code>.hero</code>, <code>.grilla-centros</code>, <code>.seccion-requisitos</code>, <code>.seccion-proceso</code>, <code>.seccion-faq</code>, <code>.pie-pagina</code>.</p>
+      </div>
+
+      <!-- 4.5 Decisiones técnicas -->
+      <div class="doc-bloque">
+        <h3 class="doc-bloque__titulo">4.5 · Decisiones técnicas</h3>
+        <p class="doc-bloque__texto">La grilla principal se estructuró con CSS Grid de 12 columnas (<code>.grid-12</code>), definida mobile-first: en mobile los organismos se apilan en una sola columna y, mediante media queries, se distribuyen en el ancho completo de la grilla a partir de tablet y desktop, con secciones como <code>.grilla-centros</code> pasando de 1 a 3 columnas.</p>
+        <p class="doc-bloque__texto"><code>.tarjeta-centro</code> usa <em>container queries</em> (<code>container-type: inline-size</code>) porque su diseño depende del espacio real disponible dentro de su contenedor la grilla de centros, no del viewport: así el teléfono se muestra recién cuando la tarjeta dispone de al menos 300px propios, sin importar si el ancho de pantalla es mobile o desktop.</p>
+        <p class="doc-bloque__texto">Lo más difícil de resolver fue mantener consistencia visual en tarjetas con contenido de longitud variable (algunas con etiqueta de urgencia, otras sin teléfono visible). Se solucionó fijando las variables de espaciado del sistema y usando flexbox con <code>margin-top: auto</code> para que las acciones queden siempre alineadas al pie de la tarjeta.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="pie-pagina">
+  <div class="contenedor">
+    <div class="pie-pagina__grilla">
+      <div class="pie-pagina__col">
+        <div class="pie-pagina__marca">
+          <span class="encabezado__logo-marca" aria-hidden="true"><svg class="icono" style="width:1.1rem;height:1.1rem;stroke:#fff"><use href="#i-gota"/></svg></span>
+          <span class="pie-pagina__marca-texto">Entre<span>Venas</span></span>
+        </div>
+        <p class="pie-pagina__desc">Plataforma informativa sobre donación de sangre en La Plata, Argentina. Juntos podemos salvar más vidas.</p>
+        <div class="pie-pagina__redes">
+          <a href="#" aria-label="Instagram"><svg class="icono" style="stroke:#fff" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg class="icono" style="stroke:none;fill:#fff" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+          <a href="#" aria-label="Twitter"><svg class="icono" style="stroke:none;fill:#fff" aria-hidden="true"><use href="#i-twitter"/></svg></a>
+        </div>
+      </div>
+
+      <div class="pie-pagina__col">
+        <h4 class="pie-pagina__titulo">Navegación</h4>
+        <nav class="pie-pagina__enlaces" aria-label="Navegación del pie de página">
+          <a href="#inicio">Inicio</a>
+          <a href="#como-donar">Cómo donar</a>
+          <a href="#centros">Centros</a>
+          <a href="#campanas">Campañas</a>
+          <a href="#vacunacion">Vacunación</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+      </div>
+
+      <div class="pie-pagina__col">
+        <h4 class="pie-pagina__titulo">Información</h4>
+        <nav class="pie-pagina__enlaces" aria-label="Información institucional">
+          <a href="#">Sobre nosotros</a>
+          <a href="#">Política de privacidad</a>
+          <a href="#">Términos de uso</a>
+          <a href="#">Accesibilidad</a>
+          <a href="#">Prensa y medios</a>
+        </nav>
+      </div>
+
+      <div class="pie-pagina__col">
+        <h4 class="pie-pagina__titulo">Contacto</h4>
+        <div class="pie-pagina__contacto">
+          <div><svg class="icono" style="width:0.9rem;height:0.9rem" aria-hidden="true"><use href="#i-mail"/></svg> info@entrevenas.org.ar</div>
+          <div><svg class="icono" style="width:0.9rem;height:0.9rem" aria-hidden="true"><use href="#i-telefono"/></svg> 0221 400-1234</div>
+          <div><svg class="icono" style="width:0.9rem;height:0.9rem" aria-hidden="true"><use href="#i-mapa"/></svg> Av. 7 N° 776, La Plata, Buenos Aires</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pie-pagina__base">
+      <span>© 2026 EntreVenas. Todos los derechos reservados.</span>
+      <span>Desarrollado para la comunidad de La Plata, Argentina.</span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+</body>
+</html>
